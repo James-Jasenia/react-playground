@@ -1,4 +1,4 @@
-import ExpenseTable from './components/ExpenseTable'
+import ExpenseTable from './components/Expenses/ExpenseTable'
 
 const App = () => {
 
