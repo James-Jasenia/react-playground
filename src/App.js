@@ -1,4 +1,4 @@
-import ExpenseForm from './components/NewExpense/ExpenseForm';
+import NewExpense from './components/NewExpense/NewExpense';
 import ExpenseTable from './components/Expenses/ExpenseTable';
 
 
@@ -12,7 +12,7 @@ const App = () => {
 
   return (
     <div>
-      <ExpenseForm />
+      <NewExpense />
       <ExpenseTable expenses={expenses} />
     </div>
   );
