@@ -1,5 +1,6 @@
+import ExpenseForm from './components/NewExpense/ExpenseForm';
 import ExpenseTable from './components/Expenses/ExpenseTable';
-import NewExpense from './components/NewExpense/NewExpense';
+
 
 const App = () => {
 
