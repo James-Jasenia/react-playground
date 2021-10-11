@@ -1,4 +1,5 @@
-import ExpenseTable from './components/Expenses/ExpenseTable'
+import ExpenseTable from './components/Expenses/ExpenseTable';
+import NewExpense from './components/NewExpense/NewExpense';
 
 const App = () => {
 
@@ -9,7 +10,10 @@ const App = () => {
   ];
 
   return (
-    <ExpenseTable expenses={expenses} />
+    <div>
+      <ExpenseForm />
+      <ExpenseTable expenses={expenses} />
+    </div>
   );
 };
 
