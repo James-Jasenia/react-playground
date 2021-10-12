@@ -7,20 +7,6 @@ const ExpenseForm = () => {
   const [amount, setAmount] = useState('');
   const [date, setDate] = useState('');
 
-// You can use an object in useSate, however, you will need to update every property in the object every single time regardless if the invidual propety changes or not.
-//   const [userInput, setUserInput] = useState({
-//       title: '',
-//       amount: '',
-//       date: ''
-//   })
-
-// const titleChangeHandler = (event) => {
-//     setTitle({
-//         ...userInput,
-//         title: event.target.value
-//     });
-//   };
-
   const titleChangeHandler = (event) => {
     setTitle(event.target.value);
   };
@@ -33,8 +19,20 @@ const ExpenseForm = () => {
     setDate(event.target.value);
   };
 
+  const formSubmissionHandler = (event) => {
+    event.preventDefault();
+
+    const expenseData = {
+      title: title,
+      amount: amount,
+      date: date
+    };
+
+    console.log(expenseData);
+  };
+
   return (
-    <form>
+    <form onSubmit={formSubmissionHandler}>
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label>Title</label>
