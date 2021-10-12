@@ -1,26 +1,53 @@
-import './ExpenseForm.css';
+import "./ExpenseForm.css";
 
 const ExpenseForm = () => {
-    return(<form>
-        <div className="new-expense_controls">
-            <div className="new-expense__control">
-                <label>Title</label>
-                <input type="text" />
-            </div>
-                <div className="new-expense__control">
-                <label>Amount</label>
-                <input type="number" min="0.01" step="0.01" />    
-            </div>
-                <div className="new-expense__control">
-                <label>Date</label>
-                <input type="date" min="2019-01-01" max="2022-12-31" />
-            </div>
+  const [title, setTitle] = userState("");
+  const [amount, setAmount] = userState("");
+  const [date, setDate] = userState("");
+
+  const titleHanlder = (event) => {
+    setTitle(event.target.value);
+  };
+
+  const amountHanlder = (event) => {
+    setAmount(event.target.value);
+  };
+
+  const dateHanlder = (event) => {
+    setDate(event.target.value);
+  };
+
+  return (
+    <form>
+      <div className="new-expense_controls">
+        <div className="new-expense__control">
+          <label>Title</label>
+          <input type="text" onChange={titleHanlder} />
         </div>
-        <div className="new-expense__actions">
-            <button type='submit'>Add Expense</button>
+        <div className="new-expense__control">
+          <label>Amount</label>
+          <input
+            type="number"
+            min="0.01"
+            step="0.01"
+            onChange={amountHanlder}
+          />
         </div>
+        <div className="new-expense__control">
+          <label>Date</label>
+          <input
+            type="date"
+            min="2019-01-01"
+            max="2022-12-31"
+            onChange={dateHanlder}
+          />
+        </div>
+      </div>
+      <div className="new-expense__actions">
+        <button type="submit">Add Expense</button>
+      </div>
     </form>
-    );
+  );
 };
 
 export default ExpenseForm;
