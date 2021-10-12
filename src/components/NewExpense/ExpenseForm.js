@@ -1,46 +1,50 @@
+import React, { useState } from "react";
 import "./ExpenseForm.css";
 
 const ExpenseForm = () => {
-  const [title, setTitle] = userState("");
-  const [amount, setAmount] = userState("");
-  const [date, setDate] = userState("");
 
-  const titleHanlder = (event) => {
+  const [title, setTitle] = useState('');
+  const [amount, setAmount] = useState('');
+  const [date, setDate] = useState('');
+
+  const titleChangeHandler = (event) => {
     setTitle(event.target.value);
   };
 
-  const amountHanlder = (event) => {
+  const amountChangedHandler = (event) => {
     setAmount(event.target.value);
   };
 
-  const dateHanlder = (event) => {
+  const dateChangedHandler = (event) => {
     setDate(event.target.value);
   };
 
+  const formSubmissionHandler = (event) => {
+    event.preventDefault();
+
+    const expenseData = {
+      title: title,
+      amount: amount,
+      date: date
+    };
+
+    console.log(expenseData);
+  };
+
   return (
-    <form>
-      <div className="new-expense_controls">
+    <form onSubmit={formSubmissionHandler}>
+      <div className="new-expense__controls">
         <div className="new-expense__control">
           <label>Title</label>
-          <input type="text" onChange={titleHanlder} />
+          <input type="text" onChange={titleChangeHandler} />
         </div>
         <div className="new-expense__control">
           <label>Amount</label>
-          <input
-            type="number"
-            min="0.01"
-            step="0.01"
-            onChange={amountHanlder}
-          />
+          <input type="number" min="0.01" step="0.01" onChange={amountChangedHandler}/>
         </div>
         <div className="new-expense__control">
           <label>Date</label>
-          <input
-            type="date"
-            min="2019-01-01"
-            max="2022-12-31"
-            onChange={dateHanlder}
-          />
+          <input type="date" min="2019-01-01" max="2022-12-31" onChange={dateChangedHandler}/>
         </div>
       </div>
       <div className="new-expense__actions">
