@@ -6,7 +6,7 @@ import Card from "../UI/Card";
 import "./ExpenseTable.css";
 
 const ExpenseTable = (props) => {
-  const [selectedYear, setSelectedYear] = useState("2022");
+  const [selectedYear, setSelectedYear] = useState("2021");
 
   const onChangeFilter = (year) => {
     setSelectedYear(year);
@@ -15,15 +15,22 @@ const ExpenseTable = (props) => {
   return (
     <div>
       <Card className="expenses">
-        <ExpensesFilter onFilterYear={onChangeFilter} />
-        {props.expenses.map((expense) => (
-          <ExpenseItem
-            key={expense.id}
-            title={expense.title}
-            amount={expense.amount}
-            date={expense.date}
-          />
-        ))}
+        <ExpensesFilter
+          selectedYear={selectedYear}
+          onFilterYear={onChangeFilter}
+        />
+        {props.expenses
+          .filter((expense) =>
+            expense.date.getFullYear().toString().includes(selectedYear)
+          )
+          .map((filteredExpense) => (
+            <ExpenseItem
+              key={filteredExpense.id}
+              title={filteredExpense.title}
+              amount={filteredExpense.amount}
+              date={filteredExpense.date}
+            />
+          ))}
       </Card>
     </div>
   );
