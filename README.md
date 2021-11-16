@@ -36,6 +36,9 @@ const myComponent = () => {
 
 ```
 
+## && vs Ternary Operator in JSX
+https://kentcdodds.com/blog/use-ternaries-rather-than-and-and-in-jsx
+
 ## Useful Snippets (ES7 React/Redux/GraphQL/React-Native snippets)
 
 NFN - New arrow function  
