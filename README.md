@@ -44,3 +44,6 @@ https://kentcdodds.com/blog/use-ternaries-rather-than-and-and-in-jsx
 NFN - New arrow function  
 EXP - Export default
 IMP - Import
+
+## Component Naming Conventions
+https://medium.com/@wittydeveloper/react-components-naming-convention-%EF%B8%8F-b50303551505
